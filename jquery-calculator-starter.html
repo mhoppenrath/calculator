@@ -9,7 +9,6 @@
 
     <!-- Added a link to Bootstrap-->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-    <script type="toCalculate.js"></script>
 
 </head>
 <body>
@@ -80,7 +79,83 @@
 
 $(document).ready(function(){
 
-// Your code here...
+
+
+        var firstNumber = "";
+        var operator;
+        var secondNumber = "";
+        var lock = false;
+        var locksecond = false;
+
+        var result;
+
+        $(".btn-primary").on("click", function(){
+            if (lock != true) {
+            console.log(this.value);
+            firstNumber += this.value;
+            console.log(firstNumber);
+            $("#first-number").html(firstNumber);
+        }
+            else if (lockSecond = true){
+            console.log(this.value);
+            secondNumber += this.value;
+            console.log(secondNumber);
+            $("#second-number").html(secondNumber);               
+            }
+        })
+        $(".btn-danger").on("click", function() {
+        if (lockSecond= true) {
+            console.log(this.value);
+            operator = this.value;
+            $("#operator").html(operator);
+            lock = true;
+        }}); 
+
+        $(".btn-success").on("click", function(){
+            var math1 = parseInt(firstNumber);
+            var math2 = parseInt(secondNumber);
+            lockSecond =true;
+            if (operator=== "plus"){
+                result = math1 + math2;
+                console.log(result);
+                $("#result").html(result);
+            }
+            else if (operator==="minus"){
+                result = math1 -math2;
+                console.log(result);
+                $("#result").html(result);
+            }
+            else if (operator==="times"){
+                result = math1*math2;
+                console.log(result);
+                $("#result").html(result);
+            }
+            else if (operator === "divide"){
+                result = math1/math2;
+                console.log(result);
+                $("#result").html(result);
+            }
+            else {
+                result = math1**math2;
+                console.log(result);
+                $("#result").html(result);
+
+            }
+        });
+        $(".btn-default").on("click",function() {
+            result = "";
+            firstNumber = "";
+            secondNumber = "";
+            operator = "";
+            lock = false;
+            $("#result").html(result);
+            $("#first-number").html(firstNumber);
+            $("#second-number").html(secondNumber);
+            $("#operator").html(operator);
+
+
+
+        })
 
 
 });
