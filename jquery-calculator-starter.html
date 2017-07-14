@@ -85,7 +85,7 @@ $(document).ready(function(){
         var operator;
         var secondNumber = "";
         var lock = false;
-        var locksecond = false;
+        var lockSecond = false;
 
         var result;
 
@@ -96,7 +96,7 @@ $(document).ready(function(){
             console.log(firstNumber);
             $("#first-number").html(firstNumber);
         }
-            else if (lockSecond = true){
+            else if (lockSecond != true){
             console.log(this.value);
             secondNumber += this.value;
             console.log(secondNumber);
@@ -104,7 +104,7 @@ $(document).ready(function(){
             }
         })
         $(".btn-danger").on("click", function() {
-        if (lockSecond= true) {
+        if (lockSecond != true) {
             console.log(this.value);
             operator = this.value;
             $("#operator").html(operator);
@@ -114,7 +114,7 @@ $(document).ready(function(){
         $(".btn-success").on("click", function(){
             var math1 = parseInt(firstNumber);
             var math2 = parseInt(secondNumber);
-            lockSecond =true;
+            lockSecond = true;
             if (operator=== "plus"){
                 result = math1 + math2;
                 console.log(result);
@@ -148,6 +148,7 @@ $(document).ready(function(){
             secondNumber = "";
             operator = "";
             lock = false;
+            lockSecond = false;
             $("#result").html(result);
             $("#first-number").html(firstNumber);
             $("#second-number").html(secondNumber);
